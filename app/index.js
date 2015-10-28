@@ -5,12 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var root_routes = require('./routes/index');
+var people_routes = require('./routes/people');
 
 var config = require('../config');
 
 var _ = require('lodash');
+var hbs = require('hbs');
 
 
 var app = express();
@@ -25,10 +26,15 @@ _.extend(app.locals, {
   isDevelopment: process.env.NODE_ENV === 'development'
 });
 
+// handlebars
+hbs.registerPartials(__dirname + '/views/partials');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+app.set('view options', {
+  layout: 'layouts/default'
+});
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -44,8 +50,8 @@ app.use(require('node-sass-middleware')({
 }));
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.use('/', routes);
-app.use('/users', users);
+app.use('/', root_routes);
+app.use('/people', people_routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

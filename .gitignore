@@ -31,3 +31,8 @@ npm-debug.log
 
 public/stylesheets/**/*.css
 public/stylesheets/**/*.css.map
+
+# bower
+.bower-*/
+bower_components
+public/lib/
