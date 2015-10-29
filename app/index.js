@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var root_routes = require('./routes/index');
 var people_routes = require('./routes/people');
@@ -34,6 +35,13 @@ app.set('view engine', 'hbs');
 app.set('view options', {
   layout: 'layouts/default'
 });
+
+// session
+app.use(session({
+  secret: 'full stack',
+  resave: true,
+  saveUninitialized: false
+}));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

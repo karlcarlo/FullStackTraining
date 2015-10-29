@@ -7,12 +7,22 @@
     <p class="login-box-msg">用户登录</p>
 
     <form action="/signin" method="post">
+      {{#if errors.email}}
+      <div class="form-group has-feedback has-error">
+        <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i>{{errors.email}}</label>
+      {{else}}
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+      {{/if}}
+        <input type="email" name="email" class="form-control" placeholder="邮箱" value="{{email}}">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
+      {{#if errors.password}}
+      <div class="form-group has-feedback has-error">
+        <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i>{{errors.password}}</label>
+      {{else}}
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+      {{/if}}
+        <input type="password" name="password" class="form-control" placeholder="密码" value="{{password}}">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
