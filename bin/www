@@ -11,6 +11,23 @@ var app = require('../app');
 var debug = require('debug')('full_stack_web_framework_training:server');
 var http = require('http');
 
+var chalk = require('chalk');
+var mongoose = require('mongoose');
+
+var config = require('../config');
+
+// MongoDB Connection
+var db = mongoose.connect(config.db.uri, config.db.options, function(err) {
+  if (err) {
+    console.error(chalk.red('Could not connect to MongoDB!'));
+    console.log(chalk.red(err));
+  }
+});
+mongoose.connection.on('error', function(err) {
+  console.error(chalk.red('MongoDB connection error: ' + err));
+  process.exit(-1);
+});
+
 /**
  * Get port from environment and store in Express.
  */
@@ -31,6 +48,14 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+// Logging initialization
+console.log('--');
+console.log(chalk.green(config.app.title + ' application started'));
+console.log(chalk.green('Environment:\t' + process.env.NODE_ENV));
+console.log(chalk.green('Port:\t\t' + config.port));
+console.log(chalk.green('Database:\t' + config.db.uri));
+console.log('--');
 
 /**
  * Normalize a port into a number, string, or false.

@@ -13,7 +13,6 @@ var config = require('../config');
 var _ = require('lodash');
 var hbs = require('hbs');
 
-
 var app = express();
 
 // Global values
