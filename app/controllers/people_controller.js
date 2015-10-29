@@ -1,6 +1,10 @@
 'use strict';
 
 var _ = require('lodash');
+var mongoose = require('mongoose');
+
+require('../models/user');
+var User = mongoose.model('User')
 
 // var helpers = require('../helpers');
 
@@ -54,8 +58,18 @@ exports.signup = function(req, res, next){
     return;
   }
 
-  // 验证通过
-  res.redirect('/signin');
+  // 验证通过, 持久化数据
+  var user = new User(req.body);
+
+  user.save(function(err){
+    if(err){
+      return next(err);
+    }
+
+    // 跳转到登录页
+    res.redirect('/signin');
+  });
+
 };
 
 // 用户登录
