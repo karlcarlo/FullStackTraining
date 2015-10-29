@@ -10,6 +10,7 @@ root_router.get('/', function(req, res, next) {
 
 // auth
 root_router.get('/signup', people_controller.signup);
+root_router.post('/signup', people_controller.signup);
 root_router.get('/signin', people_controller.signin);
 root_router.get('/signout', people_controller.signout);
 
