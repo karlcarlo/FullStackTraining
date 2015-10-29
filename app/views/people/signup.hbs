@@ -10,51 +10,39 @@
       {{#if errors.username}}
       <div class="form-group has-feedback has-error">
         <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i>{{errors.username}}</label>
-        <input type="text" name="username" class="form-control" placeholder="昵称">
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      </div>
       {{else}}
       <div class="form-group has-feedback">
-        <input type="text" name="username" class="form-control" placeholder="昵称">
+      {{/if}}
+        <input type="text" name="username" class="form-control" placeholder="昵称" value="{{username}}">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
-      {{/if}}
       {{#if errors.email}}
       <div class="form-group has-feedback has-error">
         <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i>{{errors.email}}</label>
-        <input type="email" name="email" class="form-control" placeholder="邮箱">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-      </div>
       {{else}}
       <div class="form-group has-feedback">
-        <input type="email" name="email" class="form-control" placeholder="邮箱">
+      {{/if}}
+        <input type="email" name="email" class="form-control" placeholder="邮箱" value="{{email}}">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
-      {{/if}}
       {{#if errors.password}}
       <div class="form-group has-feedback has-error">
         <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i>{{errors.password}}</label>
-        <input type="password" name="password" class="form-control" placeholder="密码">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
       {{else}}
       <div class="form-group has-feedback">
-        <input type="password" name="password" class="form-control" placeholder="密码">
+      {{/if}}
+        <input type="password" name="password" class="form-control" placeholder="密码" value="{{password}}">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
-      {{/if}}
       {{#if errors.password2}}
       <div class="form-group has-feedback has-error">
         <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i>{{errors.password2}}</label>
-        <input type="password" name="password2" class="form-control" placeholder="再次密码">
-        <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-      </div>
       {{else}}
       <div class="form-group has-feedback">
-        <input type="password" name="password2" class="form-control" placeholder="再次密码">
+      {{/if}}
+        <input type="password" name="password2" class="form-control" placeholder="再次密码" value="{{password2}}">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
-      {{/if}}
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">

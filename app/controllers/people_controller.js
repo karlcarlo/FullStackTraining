@@ -29,7 +29,12 @@ exports.signup = function(req, res, next){
       email = req.body.email,
       password = req.body.password,
       password2 = req.body.password2;
-  
+
+  // 缓存用户名密码
+  res.locals.username = username;
+  res.locals.email = email;
+  res.locals.password = password;
+
   // validators
   if(username === ''){
     opts.errors.username = '用户名为空!';
@@ -49,6 +54,8 @@ exports.signup = function(req, res, next){
     return;
   }
 
+  // 验证通过
+  res.redirect('/signin');
 };
 
 // 用户登录
