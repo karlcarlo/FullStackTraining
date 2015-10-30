@@ -109,6 +109,9 @@ exports.signin = function(req, res, next){
   if(validator.isNull(email)){
     opts.errors.email = '邮箱为空!';
   }
+  if(!validator.isEmail(email)){
+    opts.errors.email = '邮箱格式有误!';
+  }
   if(validator.isNull(password)){
     opts.errors.password = '密码为空!';
   }
