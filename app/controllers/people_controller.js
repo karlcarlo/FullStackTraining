@@ -67,17 +67,44 @@ exports.signup = function(req, res, next){
   }
 
   // TODO 验证email是否重复
-
-  // 验证通过, 持久化数据
-  var user = new User(req.body);
-
-  user.save(function(err){ // 也可以使用 User.Create(properties, callback) 方式保存数据
+  User.find({
+    $or: [{
+      username: username
+    }, {
+      email: email
+    }]
+  }, function(err, users){
     if(err){
       return next(err);
     }
 
-    // 跳转到登录页
-    res.redirect('/signin');
+    users.forEach(function(user){
+      if(user && user.username === username){
+        opts.errors.username = '用户名已经被占用!';
+      }
+
+      if(user && user.email === email){
+        opts.errors.email = '邮箱已经被注册!';
+      }
+    });
+
+    if(Object.keys(opts.errors).length){
+      res.render('people/signup', opts);
+      return;
+    }
+
+    // 验证通过, 持久化数据
+    var user = new User(req.body);
+
+    user.save(function(err){ // 也可以使用 User.Create(properties, callback) 方式保存数据
+      if(err){
+        return next(err);
+      }
+
+      // 跳转到登录页
+      res.redirect('/signin');
+    });
+
   });
 
 };
@@ -86,7 +113,7 @@ exports.signup = function(req, res, next){
 exports.signin = function(req, res, next){
 
   var opts = {
-    layout: 'layouts/auth', 
+    layout: 'layouts/auth',
     title: '用户登录',
     errors: {}
   };
