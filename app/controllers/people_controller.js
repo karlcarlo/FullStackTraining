@@ -132,7 +132,7 @@ exports.signin = function(req, res, next){
     if(!user){
       opts.errors.email = '邮箱有误!';
     }
-    else if(password !== user.password){ // 此处user对象一定要存在, 否则会报错
+    else if(!user.authenticate(password)){ // 此处user对象一定要存在, 否则会报错
       opts.errors.password = '密码有误!';
     }
     if(Object.keys(opts.errors).length){
