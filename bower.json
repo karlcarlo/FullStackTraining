@@ -23,6 +23,7 @@
     "bootstrap-sass": "~3.3.5",
     "font-awesome": "~4.4.0",
     "AdminLTE": "admin-lte#~2.3.2",
-    "Ionicons": "ionicons#~2.0.1"
+    "Ionicons": "ionicons#~2.0.1",
+    "jquery-validation": "~1.14.0"
   }
 }
