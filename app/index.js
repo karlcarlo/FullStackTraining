@@ -22,8 +22,7 @@ _.extend(app.locals, {
   title: config.app.title,
   description: config.app.description,
   keywords: config.app.keywords,
-  messages: [],
-  isDevelopment: process.env.NODE_ENV === 'development'
+  messages: []
 });
 
 // handlebars
@@ -45,7 +44,21 @@ app.use(session({
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+
+//Don't use logger for test env
+if (process.env.NODE_ENV !== 'test') {
+  app.use(logger('dev'));
+}
+
+// livereload
+if(process.env.NODE_ENV === 'development'){
+  app.locals.isDevelopment = true;
+  app.use(function(req, res, next){
+    app.locals.hostname = req.hostname;
+    next();
+  });
+}
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());

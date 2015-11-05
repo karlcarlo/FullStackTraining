@@ -36,3 +36,5 @@ public/stylesheets/**/*.css.map
 .bower-*/
 bower_components
 public/lib/
+
+.rebooted
