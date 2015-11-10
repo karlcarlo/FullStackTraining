@@ -1,0 +1,60 @@
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        文章
+        <small>博文新建和编辑</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li><a href="#">文章</a></li>
+        <li class="active">新建</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Editor box -->
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">新建文章
+            <small>Create Article</small>
+          </h3>
+        </div>
+        <!-- /.box-header -->
+        <form action="/articles" method="post">
+          <div class="box-body">
+            <div class="form-group">
+              <label for="exampleInputTitle">标题</label>
+              <input type="title" class="form-control" placeholder="请输入标题">
+              <p class="help-block">限制长度8~40个字符</p>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputContent">内容</label>
+              <textarea class="textarea" placeholder="请输入内容" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+              <p class="help-block">限制长度2~1000个字符</p>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputTag">标签</label>
+              <input type="tag" class="form-control" placeholder="请输入标签">
+              <p class="help-block">请用逗号或空格分开, 最多输入10个</p>
+            </div>
+          </div>
+          <div class="box-footer">
+            <button type="submit" class="btn btn-primary">保存</button>
+          </div>
+        </form>
+      </div>
+      <!-- /.box -->
+
+    </section>
+    <!-- /.content -->
+
+<!-- bootstrap wysihtml5 - text editor -->
+<link rel="stylesheet" href="/lib/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+<script type="text/javascript" src="/lib/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js"></script>
+<script type="text/javascript">
+  $(function(){
+    $('.textarea').wysihtml5();
+  });
+</script>

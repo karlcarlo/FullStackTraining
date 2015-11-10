@@ -5,7 +5,7 @@ var validator = require('validator');
 var mongoose = require('mongoose');
 
 require('../models/user');
-var User = mongoose.model('User')
+var User = mongoose.model('User');
 
 // var helpers = require('../helpers');
 

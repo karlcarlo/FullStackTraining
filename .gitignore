@@ -29,6 +29,7 @@ node_modules
 # Debug log from npm
 npm-debug.log
 
+# sass
 public/stylesheets/**/*.css
 public/stylesheets/**/*.css.map
 
@@ -38,3 +39,6 @@ bower_components
 public/lib/
 
 .rebooted
+
+# server
+server.sh
