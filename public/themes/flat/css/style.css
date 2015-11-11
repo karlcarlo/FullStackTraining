@@ -1,0 +1,23 @@
+#masthead .site-title {
+    font-family: Amatic SC
+}
+body {
+    font-family: Roboto
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: Roboto Slab
+}
+#masthead .site-description, .hentry .entry-meta {
+    font-family: Roboto Condensed
+}
+.recentcomments a {
+    display: inline !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+body.custom-background {
+    background-image: url('/themes/flat/img/default-background.jpg');
+    background-repeat: repeat;
+    background-position: top left;
+    background-attachment: scroll;
+}

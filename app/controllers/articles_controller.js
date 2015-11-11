@@ -15,7 +15,7 @@ exports.index = function(req, res, next) {
 };
 
 exports.show = function(req, res, next) {
-  res.render('articles/show', { layout: 'layouts/admin' });
+  res.render('articles/show');
 };
 
 exports.new = function(req, res, next) {

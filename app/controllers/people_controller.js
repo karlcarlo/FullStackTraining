@@ -190,5 +190,15 @@ exports.signout = function(req, res, next){
   res.redirect('/signin');
 };
 
+// 用户登录状态验证
+exports.authenticate = function(req, res, next){
+  if(req.session.person){
+    res.locals.person = req.session.person;
+    return next();
+  }
+  // 跳转至登录页
+  res.redirect('/signin');
+};
+
 
 
