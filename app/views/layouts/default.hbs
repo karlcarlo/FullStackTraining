@@ -8,7 +8,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
   <!-- Bootstrap 3.3.5 -->
-  <link rel="stylesheet" href="/lib/AdminLTE/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/lib/AdminLTE/bootstrap/css/bootstrap.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
   <!-- Flat theme -->
@@ -26,6 +26,11 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 
+{{#if isDevelopment}}
+<!-- Livereload script rendered -->
+<script src="http://{{hostname}}:35729/livereload.js"></script>
+{{/if}}
+
 </head>
 <body class="home blog custom-background">
 <div id="page">
@@ -33,87 +38,7 @@
             <div class="row row-offcanvas row-offcanvas-left">
 
                 <div id="secondary" class="col-lg-3">
-                    <header id="masthead" class="site-header" role="banner">
-                        <div class="hgroup">
-                            <h1 class="site-title display-title"><a href="/" title="Theme Preview" rel="home"><span itemprop="name">Theme Preview</span></a></h1>
-                            <h2 itemprop="description" class="site-description">Previewing Another WordPress Blog</h2> </div>
-                        <button type="button" class="btn btn-link hidden-lg toggle-sidebar" data-toggle="offcanvas" aria-label="Sidebar"><i class="fa fa-gear"></i></button>
-                        <button type="button" class="btn btn-link hidden-lg toggle-navigation" aria-label="Navigation Menu"><i class="fa fa-bars"></i></button>
-                        <nav id="site-navigation" class="navigation main-navigation" role="navigation">
-                            <div class="nav-menu">
-                                <ul>
-                                    <li class="page_item page-item-2"><a href="https://wp-themes.com/?page_id=2">About</a></li>
-                                    <li class="page_item page-item-46 page_item_has_children"><a href="https://wp-themes.com/?page_id=46">Parent Page</a>
-                                        <ul class='children'>
-                                            <li class="page_item page-item-49"><a href="https://wp-themes.com/?page_id=49">Sub-page</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </header>
-                    <div class="sidebar-offcanvas">
-                        <div id="main-sidebar" class="widget-area" role="complementary">
-                            <aside id="search-3" class="widget widget_search">
-                                <form method="get" id="searchform" action="https://wp-themes.com/">
-                                    <label for="s" class="assistive-text">Search</label>
-                                    <input type="text" class="field" name="s" id="s" placeholder="Search" />
-                                    <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
-                                </form>
-                            </aside>
-                            <aside id="recent-posts-3" class="widget widget_recent_entries">
-                                <h3 class='widget-title'>Recent Posts</h3>
-                                <ul>
-                                    <li>
-                                        <a href="https://wp-themes.com/?p=19">Worth A Thousand Words</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://wp-themes.com/?p=36">Elements</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://wp-themes.com/?p=14">More Tags</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://wp-themes.com/?p=8">HTML</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://wp-themes.com/?p=6">Links</a>
-                                    </li>
-                                </ul>
-                            </aside>
-                            <aside id="recent-comments-3" class="widget widget_recent_comments">
-                                <h3 class='widget-title'>Recent Comments</h3>
-                                <ul id="recentcomments">
-                                    <li class="recentcomments"><span class="comment-author-link"><a href='http://josephscott.org/' rel='external nofollow' class='url'>Joseph Scott</a></span> on <a href="https://wp-themes.com/?p=1&#038;cpage=1#comment-509">Hello world!</a></li>
-                                    <li class="recentcomments"><span class="comment-author-link"><a href='http://joseph.randomnetworks.com/' rel='external nofollow' class='url'>Joseph Scott</a></span> on <a href="https://wp-themes.com/?p=8&#038;cpage=1#comment-2">HTML</a></li>
-                                    <li class="recentcomments"><span class="comment-author-link"><a href='http://wordpress.org/' rel='external nofollow' class='url'>Mr WordPress</a></span> on <a href="https://wp-themes.com/?p=1&#038;cpage=1#comment-1">Hello world!</a></li>
-                                </ul>
-                            </aside>
-                            <aside id="archives-3" class="widget widget_archive">
-                                <h3 class='widget-title'>Archives</h3>
-                                <ul>
-                                    <li><a href='https://wp-themes.com/?m=200810'>October 2008</a></li>
-                                    <li><a href='https://wp-themes.com/?m=200809'>September 2008</a></li>
-                                    <li><a href='https://wp-themes.com/?m=200806'>June 2008</a></li>
-                                </ul>
-                            </aside>
-                            <aside id="categories-3" class="widget widget_categories">
-                                <h3 class='widget-title'>Categories</h3>
-                                <ul>
-                                    <li class="cat-item cat-item-6"><a href="https://wp-themes.com/?cat=6">First Child Category</a>
-                                    </li>
-                                    <li class="cat-item cat-item-8"><a href="https://wp-themes.com/?cat=8">One Grandchild Category</a>
-                                    </li>
-                                    <li class="cat-item cat-item-5"><a href="https://wp-themes.com/?cat=5">Parent</a>
-                                    </li>
-                                    <li class="cat-item cat-item-7"><a href="https://wp-themes.com/?cat=7">Second Child Category</a>
-                                    </li>
-                                    <li class="cat-item cat-item-1"><a href="https://wp-themes.com/?cat=1">Uncategorized</a>
-                                    </li>
-                                </ul>
-                            </aside>
-                        </div>
-                    </div>
+                  {{> sidebar}}
                 </div>
 
                 <div id="primary" class="content-area col-lg-9" itemprop="mainContentOfPage">

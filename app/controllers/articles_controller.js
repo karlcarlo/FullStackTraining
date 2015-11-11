@@ -11,7 +11,7 @@ var Article = mongoose.model('Article');
 
 // 文章列表
 exports.index = function(req, res, next) {
-  res.render('articles/index', { layout: 'layouts/admin', title: 'articles home', person: req.session.person });
+  res.render('articles/index');
 };
 
 exports.show = function(req, res, next) {

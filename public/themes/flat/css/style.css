@@ -1,3 +1,10 @@
+@media (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
+
+
 #masthead .site-title {
     font-family: Amatic SC
 }
