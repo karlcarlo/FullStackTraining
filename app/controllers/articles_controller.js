@@ -11,11 +11,11 @@ var Article = mongoose.model('Article');
 
 // 文章列表
 exports.index = function(req, res, next) {
-  res.render('articles/index');
+  res.render('articles/index', { pageClass: 'home'});
 };
 
 exports.show = function(req, res, next) {
-  res.render('articles/show');
+  res.render('articles/show', { pageClass: 'single'});
 };
 
 exports.new = function(req, res, next) {
