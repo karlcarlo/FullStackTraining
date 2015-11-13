@@ -5,13 +5,11 @@ var people_controller = require('../controllers/people_controller');
 
 /* GET home page. */
 root_router.get('/', function(req, res, next) {
-  // 验证登录状态
-  if(!req.session.person){
-    res.redirect('/signin');
-    return;
-  }
+  res.render('articles/index');
+});
 
-  res.render('index');
+root_router.get('/admin', people_controller.authenticate, function(req, res, next) {
+  res.render('index', { layout: 'layouts/admin' });
 });
 
 // auth
