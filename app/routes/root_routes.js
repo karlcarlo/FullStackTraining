@@ -2,11 +2,10 @@ var express = require('express');
 var root_router = express.Router();
 
 var people_controller = require('../controllers/people_controller');
+var articles_controller = require('../controllers/articles_controller');
 
 /* GET home page. */
-root_router.get('/', function(req, res, next) {
-  res.render('articles/index');
-});
+root_router.get('/', articles_controller.index);
 
 root_router.get('/admin', people_controller.authenticate, function(req, res, next) {
   res.render('index', { layout: 'layouts/admin' });

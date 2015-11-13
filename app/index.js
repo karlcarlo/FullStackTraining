@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var RedisStore = require('connect-redis')(session);
 
 var root_routes = require('./routes/root_routes');
 var people_routes = require('./routes/people_routes');
@@ -38,6 +39,10 @@ app.set('view options', {
 
 // session
 app.use(session({
+  store: new RedisStore({
+    host: '127.0.0.1',
+    port: 6379
+  }),
   secret: 'full stack',
   resave: true,
   saveUninitialized: false

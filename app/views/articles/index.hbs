@@ -13,20 +13,21 @@
     </div>
   </article>
 -->
-</div>
 
 {{#each articles}}
   <article itemscope itemtype="http://schema.org/Article" id="post-1" class="post-1 post type-post status-publish format-standard hentry category-uncategorized">
     <header class="entry-header">
       <h2 class="entry-title" itemprop="name">
-        <a itemprop="url" href="/articles/{{_id}}" title="{{title}}" rel="bookmark">{{title}}</a>
+        <a itemprop="url" href="/articles/{{id}}" title="{{title}}" rel="bookmark">{{title}}</a>
       </h2>
-      <div class="entry-meta"><span class="entry-date"><a href="#" rel="bookmark"><time class="entry-date published" datetime="{{updated}}" itemprop="datepublished">{{updated}}</time></a></span> by <span class="author vcard" itemscope itemprop="author" itemtype="http://schema.org/Person"><a class="url fn n" href="#" rel="author" itemprop="url"><span itemprop="name">{{author.name}}</span></a></span><span class="sep">&middot;</span><span class="comments-link"><a href="https://wp-themes.com/?p=1#comments" itemprop="discussionUrl">2 Comments</a></span></div>
+      <div class="entry-meta"><span class="entry-date"><a href="#" rel="bookmark"><time class="entry-date published" datetime="{{timestamp.full}}" itemprop="datepublished">{{timestamp.west}}</time></a></span> by <span class="author vcard" itemscope itemprop="author" itemtype="http://schema.org/Person"><a class="url fn n" href="#" rel="author" itemprop="url"><span itemprop="name">{{author.username}}</span></a></span><span class="sep">&middot;</span><span class="comments-link"><a href="#" itemprop="discussionUrl">2 Comments</a></span></div>
     </header>
     <div class="entry-content" itemprop="articleBody">
-      <p>{{content}}</p>
+      <p>{{{content}}}</p>
     </div>
   </article>
 {{/each}}
+
+</div>
 
 <script src='/themes/flat/js/main.js?ver=1.7.5'></script>

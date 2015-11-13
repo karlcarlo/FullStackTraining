@@ -3,6 +3,7 @@
 var _ = require('lodash');
 var validator = require('validator');
 var mongoose = require('mongoose');
+var URL = require('url');
 
 require('../models/user');
 var User = mongoose.model('User');
@@ -115,7 +116,8 @@ exports.signin = function(req, res, next){
   var opts = {
     layout: 'layouts/auth',
     title: '用户登录',
-    errors: {}
+    errors: {},
+    redirectTo: req.query.redirectTo || req.body.redirectTo
   };
 
   var method = req.method.toLowerCase();
@@ -169,12 +171,14 @@ exports.signin = function(req, res, next){
 
     // 保存用户信息至session
     req.session.person = {
+      uid: user.id,
       username: user.username,
       email: email
     };
 
-    // 跳转至首页
-    res.redirect('/');
+    var redirectPath = URL.parse(req.body.redirectTo || '').path;
+    // 跳转至Referer或首页
+    res.redirect(redirectPath || '/');
   });
 
 };
@@ -196,8 +200,12 @@ exports.authenticate = function(req, res, next){
     res.locals.person = req.session.person;
     return next();
   }
+
+  //  缓存当前的页面地址
+  var redirectPath = URL.parse(req.originalUrl).path;
+
   // 跳转至登录页
-  res.redirect('/signin');
+  res.redirect('/signin?redirectTo=' + encodeURIComponent(redirectPath));
 };
 
 

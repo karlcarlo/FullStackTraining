@@ -11,7 +11,10 @@ var Article = mongoose.model('Article');
 
 // 文章列表
 exports.index = function(req, res, next) {
-  Article.find(function(err, articles){
+  Article.find()
+  .populate('author')
+  .sort({ 'updated': -1 })
+  .exec(function(err, articles){
 
     res.render('articles/index', { pageClass: 'home', articles: articles });
   });
@@ -34,8 +37,13 @@ exports.create = function(req, res, next) {
     content = req.body.content,
     tags = req.body.tags;
 
-  var article = new Article(req.body);
+  var article = new Article();
 
+  article.title = title;
+  article.content = content;
+  article.author = req.session.person.uid;
+  // article.tags = tags.split(' ');
+  
   article.save(function(err){
     res.redirect('/articles');
   });
