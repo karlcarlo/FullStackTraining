@@ -24,6 +24,7 @@
     "font-awesome": "~4.4.0",
     "AdminLTE": "admin-lte#~2.3.2",
     "Ionicons": "ionicons#~2.0.1",
-    "jquery-validation": "~1.14.0"
+    "jquery-validation": "~1.14.0",
+    "editor.md": "~1.5.0"
   }
 }
