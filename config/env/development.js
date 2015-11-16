@@ -10,5 +10,8 @@ module.exports = {
   },
   app: {
       name: "Full Stack Web Framework - Development"
+  },
+  markdown: {
+    taskList: true
   }
 }

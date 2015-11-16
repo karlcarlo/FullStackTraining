@@ -22,7 +22,22 @@ exports.index = function(req, res, next) {
 
 // 文章详情
 exports.show = function(req, res, next) {
-  res.render('articles/show', { pageClass: 'single'});
+  var article_id = req.params.id;
+
+  if(!article_id){
+    return next();
+  }
+
+  Article.findOne({
+    _id: article_id
+  })
+  .populate('author')
+  .exec(function(err, article){
+    if(!article){
+      return next();
+    }
+    res.render('articles/show', { pageClass: 'single', article: article });
+  });
 };
 
 // 新建

@@ -22,12 +22,20 @@
       </h2>
       <div class="entry-meta"><span class="entry-date"><a href="#" rel="bookmark"><time class="entry-date published" datetime="{{timestamp.full}}" itemprop="datepublished">{{timestamp.west}}</time></a></span> by <span class="author vcard" itemscope itemprop="author" itemtype="http://schema.org/Person"><a class="url fn n" href="#" rel="author" itemprop="url"><span itemprop="name">{{author.username}}</span></a></span><span class="sep">&middot;</span><span class="comments-link"><a href="#" itemprop="discussionUrl">2 Comments</a></span></div>
     </header>
-    <div class="entry-content" itemprop="articleBody">
-      <p>{{{content}}}</p>
+    <div class="entry-content markdown-body editormd-html-preview" itemprop="articleBody">
+      {{{content_html}}}
     </div>
   </article>
 {{/each}}
 
 </div>
 
+<link rel="stylesheet" href="/lib/editor.md/css/editormd.css" />
+<style type="text/css">
+  .markdown-body table {
+    display: table;
+  }
+</style>
+<script src='/lib/editor.md/lib/prettify.min.js'></script>
 <script src='/themes/flat/js/main.js?ver=1.7.5'></script>
+<script src='/javascripts/pages/articles.js'></script>

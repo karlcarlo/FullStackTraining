@@ -31,9 +31,8 @@
             </div>
             <div class="form-group">
               <label for="exampleInputContent">内容</label>
-              {{!-- <textarea name="content" class="textarea" placeholder="请输入内容" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea> --}}
               <div id="editormd">
-                <textarea style="display:none;"></textarea>
+                <textarea name="content" style="display:none;"></textarea>
               </div>
               <p class="help-block">限制长度2~1000个字符</p>
             </div>
@@ -53,47 +52,31 @@
     </section>
     <!-- /.content -->
 
-<!-- bootstrap wysihtml5 - text editor -->
-<!--
-<link rel="stylesheet" href="/lib/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-<script type="text/javascript" src="/lib/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js"></script>
-<script type="text/javascript">
-  $(function(){
-    $('.textarea').wysihtml5();
-  });
-</script>
--->
-
+<!-- editor.md markdown editor -->
 <link rel="stylesheet" href="/lib/editor.md/css/editormd.css" />
 <script type="text/javascript" src="/lib/editor.md/editormd.js"></script>
 <script type="text/javascript">
-    $(function() {
-        var editor = editormd("editormd", {
-            toolbarIcons: function(){
-              return [
-                  "undo", "redo", "|", 
-                  "bold", "del", "italic", "quote", "ucwords", "|", 
-                  "h1", "h2", "h3", "h4", "h5", "h6", "|", 
-                  "list-ul", "list-ol", "hr", "|",
-                  "link", "reference-link", "image", "code", "code-block", "table", "datetime", "|",
-                  "goto-line", "watch", "preview", "clear", "search", "|",
-                  "help"
-              ];
-            },
-            placeholder: '请输入内容',
-            syncScrolling: 'single',
-            height: 480,
-            path : "/lib/editor.md/lib/" // Autoload modules mode, codemirror, marked... dependents libs path
-        });
-
-        /*
-        // or
-        var editor = editormd({
-            id   : "editormd",
-            path : "../lib/"
-        });
-        */
+  $(function() {
+    var editor = editormd("editormd", {
+      toolbarIcons: function(){
+        return [
+          "undo", "redo", "|", 
+          "bold", "del", "italic", "quote", "ucwords", "|", 
+          "h1", "h2", "h3", "h4", "h5", "h6", "|", 
+          "list-ul", "list-ol", "hr", "|",
+          "link", "reference-link", "image", "code", "code-block", "table", "datetime", "|",
+          "goto-line", "watch", "preview", "clear", "search", "|",
+          "help"
+        ];
+      },
+      htmlDecode: "style,script,iframe|on*",
+      taskList: false,
+      placeholder: '请输入内容',
+      syncScrolling: 'single',
+      height: 480,
+      path : "/lib/editor.md/lib/" // Autoload modules mode, codemirror, marked... dependents libs path
     });
+  });
 </script>
 
 

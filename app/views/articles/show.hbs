@@ -1,17 +1,19 @@
-<h1 class="page-title">Category: First Child Category</h1>
+<h1 class="page-title">Category: Markdown</h1>
 
 <div id="content" class="site-content" role="main">
 
+    {{#with article}}
     <article id="post-1" class="post-1 post type-post status-publish format-standard hentry category-uncategorized">
         <header class="entry-header">
-            <h1 class="entry-title" itemprop="name">Hello world!</h1>
-            <div class="entry-meta"><span class="entry-date"><a href="https://wp-themes.com/?p=1" rel="bookmark"><time class="entry-date published" datetime="2008-06-04T22:40:06+00:00" itemprop="datepublished">June 4, 2008</time></a></span> by <span class="author vcard" itemscope itemprop="author" itemtype="http://schema.org/Person"><a class="url fn n" href="https://wp-themes.com/?author=1" rel="author" itemprop="url"><span itemprop="name">Theme Admin</span></a></span><span class="sep">&middot;</span><span class="comments-link"><a href="https://wp-themes.com/?p=1#comments" itemprop="discussionUrl">2 Comments</a></span></div>
+            <h1 class="entry-title" itemprop="name">{{title}}</h1>
+            <div class="entry-meta"><span class="entry-date"><a href="https://wp-themes.com/?p=1" rel="bookmark"><time class="entry-date published" datetime="{{timestamp.full}}" itemprop="datepublished">{{timestamp.west}}</time></a></span> by <span class="author vcard" itemscope itemprop="author" itemtype="http://schema.org/Person"><a class="url fn n" href="https://wp-themes.com/?author=1" rel="author" itemprop="url"><span itemprop="name">{{author.username}}</span></a></span><span class="sep">&middot;</span><span class="comments-link"><a href="https://wp-themes.com/?p=1#comments" itemprop="discussionUrl">2 Comments</a></span></div>
         </header>
-        <div class="entry-content" itemprop="articleBody">
-            <p>Welcome to WordPress. This is your first post. Edit or delete it, then start blogging!</p>
+        <div class="entry-content markdown-body editormd-html-preview" itemprop="articleBody">
+            {{{content_html}}}
         </div>
-        <div class="tags-links"><a href="https://wp-themes.com/?tag=boat" rel="tag">boat</a> <a href="https://wp-themes.com/?tag=lake" rel="tag">lake</a></div>
+        <div class="tags-links"><a href="#" rel="tag">markdown</a> <a href="#" rel="tag">md</a> <a href="#" rel="tag">gfm</a></div>
     </article>
+    {{/with}}
 
     <nav class="navigation post-navigation" role="navigation">
         <h2 class="screen-reader-text">Post navigation</h2>
@@ -105,4 +107,12 @@
     <!--/.site-content -->
 </div>
 
+<link rel="stylesheet" href="/lib/editor.md/css/editormd.css" />
+<style type="text/css">
+  .markdown-body table {
+    display: table;
+  }
+</style>
+<script src='/lib/editor.md/lib/prettify.min.js'></script>
 <script src='/themes/flat/js/main.js?ver=1.7.5'></script>
+<script src='/javascripts/pages/articles.js'></script>
