@@ -145,6 +145,11 @@ exports.signin = function(req, res, next){
     opts.errors.password = '密码为空!';
   }
 
+  if(!req.session){
+    opts.errors.info = 'session不可用!';
+    console.info(opts.errors.info);
+  }
+
   if(Object.keys(opts.errors).length){
     res.render('people/signin', opts);
     return;
