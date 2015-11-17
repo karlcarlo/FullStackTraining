@@ -191,7 +191,7 @@ exports.signin = function(req, res, next){
 // 用户退出
 exports.signout = function(req, res, next){
   // 清除session中的用户信息
-  if(req.session.person){
+  if(req.session && req.session.person){
     req.session.person = null;
   }
 

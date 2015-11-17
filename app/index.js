@@ -37,17 +37,6 @@ app.set('view options', {
   layout: 'layouts/default'
 });
 
-// session
-app.use(session({
-  store: new RedisStore({
-    host: '127.0.0.1',
-    port: 6379
-  }),
-  secret: 'full stack',
-  resave: true,
-  saveUninitialized: false
-}));
-
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
@@ -75,6 +64,17 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, '../public')));
+
+// session
+app.use(session({
+  store: new RedisStore({
+    host: '127.0.0.1',
+    port: 6379
+  }),
+  secret: 'full stack',
+  resave: true,
+  saveUninitialized: false
+}));
 
 app.use('/', root_routes);
 app.use('/people', people_routes);
