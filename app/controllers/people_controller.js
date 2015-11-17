@@ -196,7 +196,7 @@ exports.signout = function(req, res, next){
 
 // 用户登录状态验证
 exports.authenticate = function(req, res, next){
-  if(req.session.person){
+  if(req.session && req.session.person){
     res.locals.person = req.session.person;
     return next();
   }
