@@ -25,7 +25,7 @@ describe 'Article Model 单元测试:', ->
       password: 'password'
 
     user.save ->
-      console.log 'user saved'
+      # console.log 'user saved'
       article = new Article
         title: '文章标题'
         content: '文章内容'
@@ -42,7 +42,7 @@ describe 'Article Model 单元测试:', ->
     it '标题为空时保存应该会出现错误', (done) ->
       article.title = ''
       article.save (err) ->
-        console.log err
+        # console.log err
         assert.isNotNull err
         done()
 
