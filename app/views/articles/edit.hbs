@@ -1,3 +1,8 @@
+{{#extend 'page_styles'}}
+<!-- editor.md markdown editor -->
+<link rel="stylesheet" type="text/css" href="/lib/editor.md/css/editormd.css" />
+{{/extend}}
+
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -22,7 +27,7 @@
           </h3>
         </div>
         <!-- /.box-header -->
-        <form action="/articles" method="post">
+        <form id="article_form" action="/articles" method="post">
           <div class="box-body">
             <div class="form-group">
               <label for="exampleInputTitle">标题</label>
@@ -52,8 +57,7 @@
     </section>
     <!-- /.content -->
 
-<!-- editor.md markdown editor -->
-<link rel="stylesheet" href="/lib/editor.md/css/editormd.css" />
+{{#extend 'page_scripts'}}
 <script type="text/javascript" src="/lib/editor.md/editormd.js"></script>
 <script type="text/javascript">
   $(function() {
@@ -78,8 +82,7 @@
     });
   });
 </script>
-
-
+{{/extend}}
 
 
 

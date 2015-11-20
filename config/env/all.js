@@ -21,7 +21,7 @@ module.exports = {
   app: {
     name: package_json.name,
     title: 'Full Stack Web Framework',
-    description: '',
-    keywords: ''
+    description: 'MEAN Full Stack Web Framework',
+    keywords: 'mean'
   }
 };

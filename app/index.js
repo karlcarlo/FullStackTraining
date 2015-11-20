@@ -28,6 +28,7 @@ _.extend(app.locals, {
 });
 
 // handlebars
+// hbs.localsAsTemplateData(app);
 hbs.registerPartials(__dirname + '/views/partials');
 
 // view engine setup

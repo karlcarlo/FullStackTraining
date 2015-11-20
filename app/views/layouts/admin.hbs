@@ -6,7 +6,15 @@
   <title>{{title}}</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Semantic META -->
+  <meta name="keywords" content="{{keywords}}">
+  <meta name="description" content="{{description}}">
+  <!-- resources -->
   {{> admin/resource}}
+  {{{block 'page_styles'}}}
+  <!-- app style -->
+  <link rel='stylesheet' href='/stylesheets/admin.css' />
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -21,5 +29,18 @@
   {{> admin/control_sidebar}}
 </div>
 <!-- ./wrapper -->
+
+<!-- jQuery 2.1.4 -->
+<script src="/lib/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="/lib/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
+
+{{{block 'page_scripts'}}}
+
+{{#if isDevelopment}}
+<!-- Livereload script rendered -->
+<script src="http://{{hostname}}:35729/livereload.js"></script>
+{{/if}}
+
 </body>
 </html>

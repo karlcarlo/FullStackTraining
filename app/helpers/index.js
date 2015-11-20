@@ -1,3 +1,8 @@
+'use strict';
+
+var hbs = require('hbs');
+
+
 // date format
 exports.dateFormat = function(_date){
   if(typeof _date != 'object'){
@@ -53,3 +58,22 @@ exports.dateFormat = function(_date){
     west: fix(date) + ' ' + months_abbr[month - 1] + ' ' + year + ' ' + fix(hours) + ':' + fix(minutes),
   };
 };
+
+// handlebars helpers
+
+var blocks = {};
+
+hbs.registerHelper('extend', function(name, options) {
+    var block = blocks[name];
+    if (!block) {
+        block = blocks[name] = [];
+    }
+    block.push(options.fn(this)); // for older versions of handlebars, use block.push(options(this));
+});
+
+hbs.registerHelper('block', function(name) {
+    var val = (blocks[name] || []).join('\n');
+    // clear the block
+    blocks[name] = [];
+    return val;
+});

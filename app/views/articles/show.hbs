@@ -1,4 +1,9 @@
-<h1 class="page-title">Category: Markdown</h1>
+{{#extend 'page_styles'}}
+<!-- editor.md markdown editor -->
+<link rel="stylesheet" type="text/css" href="/lib/editor.md/css/editormd.css" />
+{{/extend}}
+
+<h1 class="page-title">分类: Markdown</h1>
 
 <div id="content" class="site-content" role="main">
 
@@ -107,12 +112,8 @@
     <!--/.site-content -->
 </div>
 
-<link rel="stylesheet" href="/lib/editor.md/css/editormd.css" />
-<style type="text/css">
-  .markdown-body table {
-    display: table;
-  }
-</style>
+{{#extend 'page_scripts'}}
 <script src='/lib/editor.md/lib/prettify.min.js'></script>
-<script src='/themes/flat/js/main.js?ver=1.7.5'></script>
+<script src='/themes/flat/js/main.js'></script>
 <script src='/javascripts/pages/articles.js'></script>
+{{/extend}}
