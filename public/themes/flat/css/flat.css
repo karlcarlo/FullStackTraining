@@ -781,7 +781,7 @@ input#submit.active {
   }
 }
 #primary .page-title {
-  padding: 20px 90px;
+  padding: 20px 40px;
   margin: 0;
   border-bottom: 1px solid #eeeeee;
   font-size: 16px;
@@ -791,17 +791,17 @@ input#submit.active {
 }
 @media (max-width: 1199px) {
   #primary .page-title {
-    padding: 20px 125px;
+    padding: 20px 60px;
   }
 }
 @media (max-width: 991px) {
   #primary .page-title {
-    padding: 20px 60px;
+    padding: 20px 40px;
   }
 }
 @media (max-width: 767px) {
   #primary .page-title {
-    padding: 20px 30px;
+    padding: 20px;
   }
 }
 #site-navigation {
@@ -946,22 +946,22 @@ input#submit.active {
 }
 .hentry {
   border-bottom: 1px solid #eeeeee;
-  padding: 80px 90px;
+  padding: 80px 40px;
   position: relative;
 }
 @media (max-width: 1199px) {
   .hentry {
-    padding: 60px 125px;
+    padding: 60px;
   }
 }
 @media (max-width: 991px) {
   .hentry {
-    padding: 60px;
+    padding: 40px;
   }
 }
 @media (max-width: 767px) {
   .hentry {
-    padding: 30px;
+    padding: 20px;
   }
 }
 .hentry .entry-thumbnail,

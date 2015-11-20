@@ -10,15 +10,31 @@ var helpers = require('../helpers');
 var config = require('../../config');
 
 var ArticleSchema = new Schema({
-  title: { type: String, index: true },
-  content: String,
-  author: { type: ObjectId, ref: 'User'},
+  title: {
+    type: String,
+    index: true,
+    required: true
+  },
+  content: {
+    type: String,
+    trim: true
+  },
+  author: {
+    type: ObjectId,
+    ref: 'User'
+  },
   tags: [{
     name: String,
     description: String
   }],
-  created: { type: Date, default: Date.now },
-  updated: { type: Date, default: Date.now },
+  created: {
+    type: Date,
+    default: Date.now
+  },
+  updated: {
+    type: Date,
+    default: Date.now
+  },
 });
 
 // timestamp

@@ -5,7 +5,10 @@ require('connect-livereload')({
 });
 
 module.exports = function(grunt) {
-    require('load-grunt-tasks')(grunt);
+    // Unified Watch Object
+    var watchFiles = {
+        mochaTests: ['app/tests/**/*.coffee']
+    };
 
     // Project Configuration
     grunt.initConfig({
@@ -77,7 +80,23 @@ module.exports = function(grunt) {
                 logConcurrentOutput: true
             }
         },
+        env: {
+            test: {
+                NODE_ENV: 'test'
+            },
+        },
+        mochaTest: {
+            src: watchFiles.mochaTests,
+            options: {
+                reporter: 'spec',
+                require: ['coffee-script/register', 'bin/www']
+            }
+        },
     });
+
+    // Load NPM tasks
+    require('load-grunt-tasks')(grunt);
+    grunt.option('force', true);
 
     grunt.registerTask('server', function(target){
       grunt.option('force', true);
@@ -90,4 +109,6 @@ module.exports = function(grunt) {
     grunt.registerTask('default', [
         'server'
     ]);
+
+    grunt.registerTask('test:server', ['env:test', 'mochaTest']);
 };

@@ -1,3 +1,4 @@
+/* flat theme */
 @media (min-width: 1200px) {
   .container {
     width: 1200px;
@@ -27,4 +28,14 @@ body.custom-background {
     background-repeat: repeat;
     background-position: top left;
     background-attachment: scroll;
+}
+
+/* editor.md */
+.editormd-preview-container pre,
+.editormd-preview-container code,
+.editormd-preview-container kbd,
+.editormd-html-preview pre,
+.editormd-html-preview code,
+.editormd-html-preview kbd {
+  font-family: "YaHei Consolas Hybrid", monaco, Consolas, "Meiryo UI", "Malgun Gothic", "Segoe UI", "Trebuchet MS", Helvetica, monospace, monospace;
 }

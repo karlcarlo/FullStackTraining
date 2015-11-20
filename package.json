@@ -8,6 +8,7 @@
   "dependencies": {
     "body-parser": "~1.13.2",
     "chalk": "^1.1.1",
+    "coffee-script": "^1.10.0",
     "connect-redis": "^3.0.1",
     "cookie-parser": "~1.3.5",
     "debug": "~2.2.0",
@@ -24,11 +25,15 @@
     "validator": "^4.2.1"
   },
   "devDependencies": {
+    "chai": "^3.4.0",
     "connect-livereload": "^0.5.3",
     "grunt-concurrent": "^2.0.4",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-env": "^0.4.4",
+    "grunt-mocha-test": "^0.12.7",
     "grunt-nodemon": "^0.4.0",
     "grunt-open": "^0.2.3",
-    "load-grunt-tasks": "^3.3.0"
+    "load-grunt-tasks": "^3.3.0",
+    "mocha": "^2.3.4"
   }
 }
