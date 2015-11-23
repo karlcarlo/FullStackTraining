@@ -68,10 +68,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 // session
 app.use(session({
-  store: new RedisStore({
-    host: '127.0.0.1',
-    port: 6379
-  }),
+  store: new RedisStore(config.redis),
   secret: 'full stack',
   resave: true,
   saveUninitialized: false

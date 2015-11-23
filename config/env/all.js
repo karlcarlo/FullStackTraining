@@ -23,5 +23,10 @@ module.exports = {
     title: 'Full Stack Web Framework',
     description: 'MEAN Full Stack Web Framework',
     keywords: 'mean'
+  },
+  redis: {
+    host: '127.0.0.1',
+    port: 6379,
+    pass: 'pass4redis'
   }
 };
