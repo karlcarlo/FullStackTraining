@@ -78,7 +78,10 @@
       placeholder: '请输入内容',
       syncScrolling: 'single',
       height: 480,
-      path : "/lib/editor.md/lib/" // Autoload modules mode, codemirror, marked... dependents libs path
+      path : "/lib/editor.md/lib/", // Autoload modules mode, codemirror, marked... dependents libs path
+      imageUpload: true,
+      imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+      imageUploadURL: '/upload'
     });
   });
 </script>

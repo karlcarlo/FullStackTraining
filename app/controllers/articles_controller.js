@@ -24,15 +24,18 @@ exports.index = function(req, res, next) {
 exports.show = function(req, res, next) {
   var article_id = req.params.id;
 
-  if(!article_id){
+  // 校验id是否有效
+  if(!article_id && article_id !== 24){
     return next();
   }
 
+  // 查询指定文章数据
   Article.findOne({
     _id: article_id
   })
   .populate('author')
   .exec(function(err, article){
+    // 未查询到结果
     if(!article){
       return next();
     }
