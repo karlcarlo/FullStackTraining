@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
+var flash = require('connect-flash');
+var methodOverride = require('method-override');
 
 var root_routes = require('./routes/root_routes');
 var people_routes = require('./routes/people_routes');
@@ -74,6 +76,13 @@ app.use(session({
   saveUninitialized: false
 }));
 
+// flash messages
+app.use(flash());
+
+// method override
+app.use(methodOverride('_method'));
+
+// routes
 app.use('/', root_routes);
 app.use('/people', people_routes);
 app.use('/articles', articles_routes);

@@ -9,7 +9,7 @@ var upload_controller = require('../controllers/upload_controller');
 root_router.get('/', articles_controller.index);
 
 root_router.get('/admin', people_controller.authenticate, function(req, res, next) {
-  res.render('index', { layout: 'layouts/admin' });
+  res.render('dashboard', { layout: 'layouts/admin' });
 });
 
 // auth

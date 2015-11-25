@@ -12,7 +12,11 @@
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
         <li><a href="#">文章</a></li>
+        {{#if isEdit}}
+        <li class="active">编辑</li>
+        {{else}}
         <li class="active">新建</li>
+        {{/if}}
       </ol>
     </section>
 
@@ -22,33 +26,47 @@
       <!-- Editor box -->
       <div class="box">
         <div class="box-header">
+          {{#if isEdit}}
+          <h3 class="box-title">编辑文章
+            <small>Modify Article</small>
+          </h3>
+          {{else}}
           <h3 class="box-title">新建文章
             <small>Create Article</small>
           </h3>
+          {{/if}}
         </div>
         <!-- /.box-header -->
+        {{#if isEdit}}
+        <form id="article_form" action="/articles/{{article.id}}?_method=PUT" method="post">
+        {{else}}
         <form id="article_form" action="/articles" method="post">
+        {{/if}}
           <div class="box-body">
             <div class="form-group">
-              <label for="exampleInputTitle">标题</label>
-              <input type="text" name="title" class="form-control" placeholder="请输入标题">
-              <p class="help-block">限制长度8~40个字符</p>
+              <label class="control-title">标题</label>
+              <input type="text" name="title" class="form-control" placeholder="请输入标题" value="{{article.title}}">
+              <p class="help-block">限制长度4~60个字符</p>
             </div>
             <div class="form-group">
-              <label for="exampleInputContent">内容</label>
+              <label class="control-title">内容</label>
               <div id="editormd">
-                <textarea name="content" style="display:none;"></textarea>
+                <textarea name="content" style="display:none;">{{article.content}}</textarea>
               </div>
-              <p class="help-block">限制长度2~1000个字符</p>
+              <p class="help-block">支持 Markdown 和 HTML 格式</p>
             </div>
             <div class="form-group">
-              <label for="exampleInputTag">标签</label>
+              <label class="control-title">标签</label>
               <input type="text" name="tags" class="form-control" placeholder="请输入标签">
-              <p class="help-block">请用逗号或空格分开, 最多输入10个</p>
+              <p class="help-block">请用空格分开, 最多输入10个</p>
             </div>
           </div>
           <div class="box-footer">
-            <button type="submit" class="btn btn-primary">保存</button>
+            {{#if isEdit}}
+            <button type="submit" class="btn btn-primary">更新</button>
+            {{else}}
+            <button type="submit" class="btn btn-primary">发布</button>
+            {{/if}}
           </div>
         </form>
       </div>
@@ -59,32 +77,8 @@
 
 {{#extend 'page_scripts'}}
 <script type="text/javascript" src="/lib/editor.md/editormd.js"></script>
-<script type="text/javascript">
-  $(function() {
-    var editor = editormd("editormd", {
-      toolbarIcons: function(){
-        return [
-          "undo", "redo", "|", 
-          "bold", "del", "italic", "quote", "ucwords", "|", 
-          "h1", "h2", "h3", "h4", "h5", "h6", "|", 
-          "list-ul", "list-ol", "hr", "|",
-          "link", "reference-link", "image", "code", "code-block", "table", "datetime", "|",
-          "goto-line", "watch", "preview", "clear", "search", "|",
-          "help"
-        ];
-      },
-      htmlDecode: "style,script,iframe|on*",
-      taskList: false,
-      placeholder: '请输入内容',
-      syncScrolling: 'single',
-      height: 480,
-      path : "/lib/editor.md/lib/", // Autoload modules mode, codemirror, marked... dependents libs path
-      imageUpload: true,
-      imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-      imageUploadURL: '/upload'
-    });
-  });
-</script>
+<script type="text/javascript" src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script type="text/javascript" src="/javascripts/pages/articles.edit.js"></script>
 {{/extend}}
 
 

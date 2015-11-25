@@ -42,3 +42,6 @@ public/lib/
 
 # server
 server.sh
+
+# uploads
+public/uploads/**/*

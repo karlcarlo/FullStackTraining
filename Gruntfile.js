@@ -64,7 +64,7 @@ module.exports = function(grunt) {
                             // Delay before server listens on port
                             setTimeout(function() {
                                 require('fs').writeFileSync('.rebooted', 'rebooted' + Date.now());
-                            }, 100);
+                            }, 1000);
                         });
                     }
 

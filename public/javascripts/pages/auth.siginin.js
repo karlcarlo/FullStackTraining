@@ -1,6 +1,6 @@
   $(function(){
     $('#auth_form').validate({
-      debug: true,
+      debug: false,
       submitHandler: function(form) {
         form.submit();
         // $(form).ajaxSubmit();
