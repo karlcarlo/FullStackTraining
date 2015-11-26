@@ -23,8 +23,10 @@ router.get('/:id/edit', articles_controller.edit);
 // 创建和更新
 router.post('/', articles_controller.create);
 router.put('/:id', articles_controller.update);
+router.post('/:id', articles_controller.update);
 
 // 删除
 router.delete('/:id', articles_controller.destroy);
+router.post('/:id/detele', articles_controller.destroy);
 
 module.exports = router;

@@ -1,0 +1,9 @@
+<nav class="navbar navbar-default navbar-static-top main-toolbar">
+  <div class="container-fluid">
+    {{#if person}}
+    <p class="navbar-text navbar-right"><a href="#" class="navbar-link">{{person.username}}</a> | <a href="/signout" class="navbar-link">退出</a></p>
+    {{else}}
+    <p class="navbar-text navbar-right"><a href="/signin" class="navbar-link">登录</a> | <a href="/signup" class="navbar-link">注册</a></p>
+    {{/if}}
+  </div><!-- /.container-fluid -->
+</nav>

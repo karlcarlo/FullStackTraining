@@ -68,7 +68,8 @@ exports.show = function(req, res, next) {
         content: req.flash('message_content'),
         status: req.flash('message_status'), // success | info | warning | danger
       },
-      article: article
+      article: article,
+      isManage: req.session.person? true: false
     });
   });
 };
@@ -177,6 +178,36 @@ exports.update = function(req, res, next) {
 
 // 删除
 exports.destroy = function(req, res, next) {
-  res.redirect('/articles');
+  var article_id = req.params.id;
+
+  // 校验id是否有效
+  if(!article_id && article_id !== 24){
+    return next();
+  }
+
+  // 查询指定文章数据
+  Article.findById(article_id)
+  .exec(function(err, article){
+    if(err){
+      return next(err);
+    }
+    // 未查询到结果
+    if(!article){
+      return next();
+    }
+
+    // 删除指定文章
+    Article.remove({ _id: article_id })
+    .exec(function(err){
+      if(err){
+        return next(err);
+      }
+
+      req.flash('message_status', 'success');
+      req.flash('message_content', '文章删除成功!');
+      res.redirect('/articles');
+
+    });
+  });
 };
 

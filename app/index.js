@@ -76,6 +76,14 @@ app.use(session({
   saveUninitialized: false
 }));
 
+// cache person data
+app.use(function(req, res, next){
+  if(req.session && req.session.person){
+    res.locals.person = req.session.person;
+  }
+  next();
+});
+
 // flash messages
 app.use(flash());
 
