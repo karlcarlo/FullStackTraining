@@ -45,3 +45,8 @@ server.sh
 
 # uploads
 public/uploads/**/*
+
+# config
+config/env/*.js
+!config/env/all.js
+!config/env/*.sample.js
