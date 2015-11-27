@@ -2,14 +2,14 @@
 
 module.exports = {
   db: {
-    uri: 'mongodb://localhost/fswf-dev',
+    uri: 'mongodb://localhost/fswf',
     options: {
       user: '',
       pass: ''
     }
   },
   app: {
-      name: "Full Stack Web Framework - Development"
+      name: "Full Stack Web Framework"
   },
   markdown: {
     taskList: true

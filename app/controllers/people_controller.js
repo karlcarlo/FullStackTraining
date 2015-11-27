@@ -102,6 +102,8 @@ exports.signup = function(req, res, next){
         return next(err);
       }
 
+      req.flash('message_status', 'success');
+      req.flash('message_content', '用户注册成功, 请登录');
       // 跳转到登录页
       res.redirect('/signin');
     });
@@ -117,7 +119,11 @@ exports.signin = function(req, res, next){
     layout: 'layouts/auth',
     title: '用户登录',
     errors: {},
-    redirectTo: req.query.redirectTo || req.body.redirectTo
+    redirectTo: req.query.redirectTo || req.body.redirectTo,
+    message: {
+      content: req.flash('message_content'),
+      status: req.flash('message_status'), // success | info | warning | danger
+    }
   };
 
   var method = req.method.toLowerCase();
